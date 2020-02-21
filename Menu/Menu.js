@@ -40,14 +40,21 @@ const menudiv = document.createElement('div');
 menudiv.classList.add('menu');
 
 const menul = document.createElement('ul');
-menu1.array.forEach(element => {
-  
+menuItems.forEach(element => {
+  const menu2 = document.createElement('li');
+  menu2.textContent = element;
+  menu1.appendChild(menu2); //attatching li to the uls
+  return menu1;
 });
 
 const menuButton = document.querySelector('.menu-button');
 menuButton.addEventListener('click', e => {
-  menudiv.classList.toggle('.menu--open');
+  menudiv.classList.toggle('menu--open');
 } );
 
-return menu;
+
+return menudiv;
 }
+
+const headerx = document.querySelector('.header')
+headerx.appendChild(menu);
