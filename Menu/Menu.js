@@ -47,8 +47,11 @@ menuItems.forEach(element => {
   return menu1;
 });
 
+const headerx = document.querySelector('.header')
+headerx.appendChild(menu());
+
 const menuButton = document.querySelector('.menu-button');
-menuButton.addEventListener('click', e => {
+menuButton.addEventListener('click', () => {
   menudiv.classList.toggle('menu--open');
 } );
 
@@ -56,5 +59,3 @@ menuButton.addEventListener('click', e => {
 return menudiv;
 }
 
-const headerx = document.querySelector('.header')
-headerx.appendChild(menu);
