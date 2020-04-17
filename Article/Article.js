@@ -107,8 +107,58 @@ const data = [
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data (or can use .foreach), creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
+div
+h2
+4 ps
+a span
 */
+
+function comp(title, date, p1, p2, p3) {
+
+const divx = document.createElement('div');
+divx.classList.add('article');   // class list add a class to whatever
+
+const h2x = document.createElement('h2');
+h2x.classList.add('h2');
+h2x.textContent = title;
+
+const pdate = document.createElement('p');
+pdate.classList.add('date');
+pdate.textContent = date;
+
+//_______________________________________________
+const ptext1 = document.createElement('p');
+ptext1.textContent = p1;
+const ptext2 = document.createElement('p');
+ptext2.textContent = p2;
+const ptext3= document.createElement('p');
+ptext3.textContent = p3;
+
+
+const spanx = document.createElement('span');
+spanx.classList.add('expandButton');
+spanx.textContent = 'Hi';
+
+divx.appendChild(h2x);
+divx.appendChild(pdate);
+divx.appendChild(ptext1);
+divx.appendChild(ptext2);
+divx.appendChild(ptext3);
+
+spanx.addEventListener('click', e => {
+  divx.classList.toggle('article-open');// it goes from close to open (in css code file)
+})
+divx.appendChild(spanx);
+
+return divx;
+}
+
+const articlex = document.querySelector('.articles');
+
+data.forEach((item) => {
+  let newArticle = comp(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+  articlex.appendChild(newArticle);}
+)
